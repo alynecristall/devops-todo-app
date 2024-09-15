@@ -22,6 +22,10 @@ app.delete('/tasks/:id', (req, res) => {
     const taskId = parseInt(req.params.id);
     const taskIndex = tasks.findIndex(task => task.id === taskId);
 
+    if (isNaN(taskId)) {
+        return res.status(400).json({ error: 'ID inválido fornecido.' });
+    }
+
     if (taskIndex === -1) {
         return res.status(404).json({ error: 'Tarefa não encontrada.' });
     }
@@ -29,6 +33,7 @@ app.delete('/tasks/:id', (req, res) => {
     tasks.splice(taskIndex, 1);
     res.status(204).send();
 });
+
 
 app.listen(port, () => {
     console.log(`App rodando em http://localhost:${port}`);
