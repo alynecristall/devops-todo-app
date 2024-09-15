@@ -8,9 +8,6 @@
     "lint": "echo 'No linter configured'"
   },
   "dependencies": {
-    "express": "^4.17.1"  // Adicione uma dependência básica
-  },
-  "devDependencies": {
-    // Dependências para desenvolvimento, como linter ou ferramentas de teste
+    "express": "^4.17.1"  // Uma dependência básica para gerar o package-lock.json
   }
 }
