@@ -2,12 +2,12 @@
   "name": "devops-todo-app",
   "version": "1.0.0",
   "description": "Projeto de DevOps com CI e CD",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo 'No tests implemented yet'",
     "lint": "echo 'No linter configured'"
   },
   "dependencies": {
-    "express": "^4.17.1"  // Uma dependência básica para gerar o package-lock.json
+    "express": "^4.17.1"
   }
 }
