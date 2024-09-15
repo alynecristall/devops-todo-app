@@ -1,13 +1,16 @@
 {
   "name": "devops-todo-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Projeto de DevOps com CI e CD",
   "main": "app.js",
   "scripts": {
     "test": "echo 'No tests implemented yet'",
     "lint": "echo 'No linter configured'"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "express": "^4.17.1"  // Adicione uma dependência básica
+  },
+  "devDependencies": {
+    // Dependências para desenvolvimento, como linter ou ferramentas de teste
+  }
 }
