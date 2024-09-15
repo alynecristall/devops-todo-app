@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Node.js CIT
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Atualizado para Node.js 20
+          node-version: '20'  # Define a versão do Node.js como 20
 
       - name: Install dependencies
         run: npm install
