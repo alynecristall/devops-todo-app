@@ -38,3 +38,18 @@ app.delete('/tasks/:id', (req, res) => {
 app.listen(port, () => {
     console.log(`App rodando em http://localhost:${port}`);
 });
+
+app.put('/tasks/:id', (req, res) => {
+    const taskId = parseInt(req.params.id);
+    const taskIndex = tasks.findIndex(task => task.id === taskId);
+
+    if (taskIndex === -1) {
+        return res.status(404).json({ error: 'Tarefa não encontrada.' });
+    }
+
+    tasks[taskIndex].title = req.body.title || tasks[taskIndex].title;
+    tasks[taskIndex].completed = req.body.completed !== undefined ? req.body.completed : tasks[taskIndex].completed;
+
+    res.json(tasks[taskIndex]);
+});
+
