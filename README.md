@@ -7,3 +7,5 @@
 5. Rode o servidor: `node app.js`
 6. Acesse a API em `http://localhost:3000/tasks`
 # devops-todo-app
+
+Testando o CI/CD
