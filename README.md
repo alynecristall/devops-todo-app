@@ -1,4 +1,4 @@
-## Como rodar o projeto
+## Como rodar o projeto:
 
 1. Certifique-se de ter o [Node.js](https://nodejs.org/) instalado.
 2. Clone este repositório: `git clone https://github.com/seu-usuario/devops-todo-app.git`
