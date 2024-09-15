@@ -18,6 +18,17 @@ app.post('/tasks', (req, res) => {
     tasks.push(newTask);
     res.status(201).json(newTask);
 });
+app.delete('/tasks/:id', (req, res) => {
+    const taskId = parseInt(req.params.id);
+    const taskIndex = tasks.findIndex(task => task.id === taskId);
+
+    if (taskIndex === -1) {
+        return res.status(404).json({ error: 'Tarefa não encontrada.' });
+    }
+
+    tasks.splice(taskIndex, 1);
+    res.status(204).send();
+});
 
 app.listen(port, () => {
     console.log(`App rodando em http://localhost:${port}`);
