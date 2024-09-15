@@ -2,10 +2,23 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+function findTaskById(taskId) {
+    return tasks.find(task => task.id === taskId);
+}
+
 let tasks = [
     { id: 1, title: 'Estudar DevOps', completed: false },
     { id: 2, title: 'Criar projeto de exemplo', completed: true }
 ];
+app.get('/tasks/:id', (req, res) => {
+    const task = findTaskById(parseInt(req.params.id));
+
+    if (!task) {
+        return res.status(404).json({ error: 'Tarefa não encontrada.' });
+    }
+
+    res.json(task);
+});
 
 app.use(express.json());
 
