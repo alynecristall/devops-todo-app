@@ -1,31 +1,25 @@
-name: Node.js CI
+name: Run Tests
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
-      - main
+      - main  # Alvo de pull requests
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Pode ajustar para a versão que você deseja
+          node-version: '16'  # ou a versão que você está usando
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run lint (code quality)
-        run: npm run lint || true  # Use `|| true` para evitar falha se não tiver lint
-
       - name: Run tests
-        run: npm test || true  # Use `|| true` para evitar falha se não tiver testes
+        run: npm test
