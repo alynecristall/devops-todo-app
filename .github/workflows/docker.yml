@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Image CI and Discord Notification
 
 on:
   push:
@@ -36,3 +36,17 @@ jobs:
       # Verifica se a imagem foi construída corretamente
       - name: Image digest
         run: echo ${{ steps.build.outputs.digest }}
+
+  notify:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      # Faz o checkout do repositório
+      - uses: actions/checkout@v2
+
+      # Envia a notificação para o Discord
+      - name: Run Discord Webhook
+        uses: johnnyhuy/actions-discord-git-webhook@main
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
